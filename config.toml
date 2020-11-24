@@ -1,4 +1,4 @@
-baseURL = "http://ericleer.com"
+baseURL = "http://ericleer.com/"
 languageCode = "en-us"
 title = "EricLeer"
 theme = "nofancy"
