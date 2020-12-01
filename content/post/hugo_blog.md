@@ -27,5 +27,8 @@ https://www.sitepoint.com/premium/books/a-beginner-s-guide-to-creating-a-static-
 
 Summary of hugo templates: https://terrty.net/2018/15-hugo-framework-blog-themes/
 
+# Hosting
+https://github.com/ncruces/appengine-hosting
+
 # Conclusion
 In the end I don't think it really matters which platform you choose for building your blog. They are all really similar in structure and functionality. With Hugo you have a platform that is really flexible in function, fast and easy to use.

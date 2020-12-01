@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>EricLeer</title>
+    <link>https://ericleer.com/post/</link>
+    <description>Recent content on EricLeer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 22 Nov 2020 22:26:06 +0100</lastBuildDate><atom:link href="https://ericleer.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Hugo</title>
+      <link>https://ericleer.com/post/hugo_blog/</link>
+      <pubDate>Sun, 22 Nov 2020 22:26:06 +0100</pubDate>
+      
+      <guid>https://ericleer.com/post/hugo_blog/</guid>
+      <description>Choosing the right blogging software can be quite tricky. After a first search tens of different options show up.</description>
+    </item>
+    
+  </channel>
+</rss>

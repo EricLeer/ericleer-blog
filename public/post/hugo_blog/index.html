@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  
+  <meta charset="utf-8">
+  <title>How to Hugo - EricLeer</title>
+  <meta name="description" content="How to Hugo">
+  <meta name="author" content="Eric Leerssen">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://ericleer.com/css/fonts.css">
+  
+  
+  <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/pure-min.css" integrity="sha384-CCTZv2q9I9m3UOxRLaJneXrrqKwUNOzZ6NGEUMwHtShDJ+nCoiXJCAgi05KfkLGY" crossorigin="anonymous">
+  
+  
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/grids-responsive-min.css">
+  
+  <link rel="stylesheet" href="https://ericleer.com/css/custom.css">
+
+  
+  
+  <link rel="stylesheet" href="https://ericleer.com/highlight/styles/default.css">
+  
+  <script src="https://ericleer.com/highlight/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <meta name="generator" content="Hugo 0.78.2" />
+  
+</head>
+<body>
+
+<div class="header pure-g">
+    <div class="pure-u-1-24 pure-u-md-5-24"></div>
+    <div class="pure-u-11-12 pure-u-md-5-8">
+        <div class="desktop pure-menu pure-menu-horizontal nav-menu">
+            
+            <a href="https://ericleer.com/" class="site-title pure-menu-heading">EricLeer</a>
+            <ul class="pure-menu-list">
+				
+                <li class="pure-menu-item">
+                    <a href="https://ericleer.com/about/" class="pure-menu-link">About</a>
+                </li>
+            </ul>
+        </div>
+        <div class="mobile pure-menu nav-menu">
+            <a href="/" class="pure-menu-heading" id="toggle-home">EricLeer</a>
+            <a href="#" id="toggle-btn">&#9776;</a>
+            <ul class="pure-menu-list" id="toggle-content" style="display:none;">
+                
+				
+                <li class="pure-menu-item">
+                    <a href="https://ericleer.com/about" class="pure-menu-link">About</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="pure-u-1-24 pure-u-md-1-6"></div>
+</div>
+
+<div class="pure-g">
+    <div class="pure-u-1-24 pure-u-md-5-24"></div>
+	<div class="pure-u-11-12 pure-u-md-5-8">
+        <div class="post">
+
+            <div class="post-title">
+                <p class="footnote">
+                    <time class="">2020-11-22</time>
+		            
+                    
+                    |
+                    
+                    
+                    tags:<a href="https://ericleer.com/tags/hugo">hugo</a> 
+                    
+
+                    
+
+                    
+                </p>
+                <h1>How to Hugo</h1>
+            </div>
+
+            <div class="post-content">
+                <p>Choosing the right blogging software can be quite tricky. After a first search tens of different options show up. Being a Python programmer I first tried some python based frameworks, namely pelican and nikolas. Although their was nothing wrong with them in the end I settled on hugo, which is also running the blog you are currently looking at. From a first glance hugo is fast, easy to set up and easy to tweak.</p>
+<p>In this blog I will describe my learnings in using the platform in the hope that future users (myself included) might find it usefull. I&rsquo;m sure to add many updates as I go along.</p>
+<h1 id="installation--setup">Installation &amp; setup</h1>
+<p>The easiest way to get started with Hugo is by just following the quickstart guide which you can find here: <a href="https://gohugo.io/getting-started/quick-start/">https://gohugo.io/getting-started/quick-start/</a>. This will set you up with a small explanation on how to initialize your project, create a first post, pick a theme and how to check the resultant page locally.</p>
+<h2 id="making-the-basic-layout">Making the basic layout</h2>
+<p>Hugo uses themes to change the layout of you webpage. You can easily tweak these to you liking, but for now I will just go with a premade one.
+For my blog I want a basic landing page that shows the first few blogposts, want to be able to view an about me section and finally an archive showcasing all the old blogs. Sind this is pretty standard I can choose from tens of different layouts that achieve this goal.</p>
+<p>After trying a couple I went with a fairly minimalistic design: <a href="https://github.com/gizak/nofancy">https://github.com/gizak/nofancy</a>.</p>
+<h1 id="tweaking-hugo-to-your-liking">Tweaking hugo to your liking</h1>
+<p>Next step is to change the overall design to your liking. To do this we have to dive deeper into the themes and configuration.</p>
+<p>A basic overview of how hugo is structured
+<a href="https://www.sitepoint.com/premium/books/a-beginner-s-guide-to-creating-a-static-website-with-hugo/read/1">https://www.sitepoint.com/premium/books/a-beginner-s-guide-to-creating-a-static-website-with-hugo/read/1</a></p>
+<p>Summary of hugo templates: <a href="https://terrty.net/2018/15-hugo-framework-blog-themes/">https://terrty.net/2018/15-hugo-framework-blog-themes/</a></p>
+<h1 id="hosting">Hosting</h1>
+<p><a href="https://github.com/ncruces/appengine-hosting">https://github.com/ncruces/appengine-hosting</a></p>
+<h1 id="conclusion">Conclusion</h1>
+<p>In the end I don&rsquo;t think it really matters which platform you choose for building your blog. They are all really similar in structure and functionality. With Hugo you have a platform that is really flexible in function, fast and easy to use.</p>
+
+            </div>
+        </div>
+	</div>
+    <div class="pure-u-1-24 pure-u-md-1-6"></div>
+</div>
+
+<div class="footer pure-g">
+    <div class="pure-u-1-24 pure-u-md-5-24"></div>
+    <div class="pure-u-11-12 pure-u-md-5-8">
+        <div class="footer-content">
+		  <div class="pure-menu pure-menu-horizontal">
+              <ul>
+			      
+                  <li class="pure-menu-heading" id="foot-name">Eric Leerssen:</li>
+                  
+				  
+                  
+          
+                  
+                  <li class="pure-menu-item">
+                      <a href="https://github.com/EricLeer" class="pure-menu-link">GitHub</a>
+                  </li>
+                  
+          
+                  
+                  <li class="pure-menu-item">
+                      <a href="https://www.linkedin.com/in/YOUR%20LINKEDIN%20ID" class="pure-menu-link">LinkedIn</a>
+                  </li>
+                  
+          
+                  
+          
+                  
+          
+              </ul>
+              <a href="#" class="pure-menu-heading pull-right" id="gototop-btn">↑↑</a>
+          </div>
+		  
+		</div>
+	  </div>
+      <div class="pure-u-1-24 pure-u-md-1-6"></div>
+</div>
+
+
+<script src="https://ericleer.com/js/jquery.min.js" type="text/javascript"></script>
+<script src="https://ericleer.com/js/jquery.timeago.js" type="text/javascript"></script>
+<script type="text/javascript">
+  $(function(){
+    $("time.timeago").timeago();
+  })
+  $("#toggle-btn").click(function(){
+    $("#toggle-content").toggle();
+    if($(this).html() === "☰") {
+        $(this).html("X")
+    } else {
+        $(this).html("☰")
+    }
+  });
+  $(window).resize(function(){
+    if(window.innerWidth > 768) {
+      $(".desktop").removeAttr("style");
+    }
+  });
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'YOUR Google Analytics Tracking ID', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</body>
+</html>
+
