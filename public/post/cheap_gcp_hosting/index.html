@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  
+  <meta charset="utf-8">
+  <title>Hosting static pages with google cloud platform on the cheap - EricLeer</title>
+  <meta name="description" content="Hosting static pages with google cloud platform on the cheap">
+  <meta name="author" content="Eric Leerssen">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://ericleer.com/css/fonts.css">
+  
+  
+  <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/pure-min.css" integrity="sha384-CCTZv2q9I9m3UOxRLaJneXrrqKwUNOzZ6NGEUMwHtShDJ+nCoiXJCAgi05KfkLGY" crossorigin="anonymous">
+  
+  
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/grids-responsive-min.css">
+  
+  <link rel="stylesheet" href="https://ericleer.com/css/custom.css">
+
+  
+  
+  <link rel="stylesheet" href="https://ericleer.com/highlight/styles/default.css">
+  
+  <script src="https://ericleer.com/highlight/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <meta name="generator" content="Hugo 0.78.2" />
+  
+</head>
+<body>
+
+<div class="header pure-g">
+    <div class="pure-u-1-24 pure-u-md-5-24"></div>
+    <div class="pure-u-11-12 pure-u-md-5-8">
+        <div class="desktop pure-menu pure-menu-horizontal nav-menu">
+            
+            <a href="https://ericleer.com/" class="site-title pure-menu-heading">EricLeer</a>
+            <ul class="pure-menu-list">
+				
+                <li class="pure-menu-item">
+                    <a href="https://ericleer.com/about/" class="pure-menu-link">About</a>
+                </li>
+            </ul>
+        </div>
+        <div class="mobile pure-menu nav-menu">
+            <a href="/" class="pure-menu-heading" id="toggle-home">EricLeer</a>
+            <a href="#" id="toggle-btn">&#9776;</a>
+            <ul class="pure-menu-list" id="toggle-content" style="display:none;">
+                
+				
+                <li class="pure-menu-item">
+                    <a href="https://ericleer.com/about" class="pure-menu-link">About</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="pure-u-1-24 pure-u-md-1-6"></div>
+</div>
+
+<div class="pure-g">
+    <div class="pure-u-1-24 pure-u-md-5-24"></div>
+	<div class="pure-u-11-12 pure-u-md-5-8">
+        <div class="post">
+
+            <div class="post-title">
+                <p class="footnote">
+                    <time class="">2020-12-01</time>
+		            
+                    
+                    |
+                    
+                    
+                    tags:<a href="https://ericleer.com/tags/gcp">gcp</a> 
+                    
+
+                    
+
+                    
+                </p>
+                <h1>Hosting static pages with google cloud platform on the cheap</h1>
+            </div>
+
+            <div class="post-content">
+                <p>In this day and age static website are making their reentry again. They have the big advantages of being fast, secure and having a small footprint. Especially this last point makes it suitable for many cheap hosting options. Gitlab and Github pages give you options to host a static page for free, which has been described already many times.</p>
+<p>Another option is to use one of the public cloud providers. Both on AWS and azure you will find similar options, but in this blog I will dive into the different options that exist within gcp. These options entail google cloud storage, firebase, appengine, cloud run and compute engine.</p>
+<h2 id="hosting-on-google-cloud-storage">Hosting on google cloud storage</h2>
+<p>The first option that shows up when wanting to host a static website is to host it directly from Google Cloud Storage (GCS). This gives you an easy performant way website that scales also scales if your application would become a hit.</p>
+<p>Google has 2 good guides on how to set this up for <a href="https://cloud.google.com/storage/docs/hosting-static-website-http">http</a> and <a href="https://cloud.google.com/storage/docs/hosting-static-website">https</a>. The http options is basically free for small websites/loads, the https version does incur some costs.</p>
+<p><strong>HTTP</strong><br>
+The guide for hosting with http let&rsquo;s you direct your dns to the bucket with a CNAME record. This can be a bit of a problem if you where planning to use a toplevel domain (example.com) instead of subdomain (sub.example.com), since it is not possible to create a CNAME record for a toplevel domain. One possible workaround is to set a CNAME record for a subdomain and then redirect your toplevel domain to the subdomain. Not all DNS providers supply this option though.</p>
+<p>If this is not a problem for your planned usage this is a really cheap option to host your website. Storage costs 2 cents per GB, networking 12 cents per GB and basic operations 5 or 0.4 cents per 10,000 operations. For a basic small/medium sized website with not to high traffic this would lead to a cost of about 1 dollar per month. If your load is considerably lower this option is basically free.</p>
+<p><strong>HTTPS</strong><br>
+It might be that hosting on a subdomain, or using the above rerouting option is not a possibility. It could also be possible that hosting on http is not wanted since using http over https could result in a hit in SEO. In those case a load balancer has to be put in front of the bucket. This load balancer lets you add an ssl certificate. The guide from Google only sets you up for hosting over https, to also be able to serve clients trying to acces on http an additinal http-to-https redirect should be added. Just like the hosting setup there is a really good <a href="https://cloud.google.com/load-balancing/docs/https/setting-up-http-https-redirect">guide</a> on how to set this up.</p>
+<p>Overall this would set you up with a really performant and scalable solution. The downside is that on top of the GCS costs previously mentioned now also cost for the load balancer is added. The prices for the load balancer mainly fall under the <a href="https://cloud.google.com/vpc/network-pricing#forwarding-rules-pricing-examples">forwarding rules</a> which cost 2.5 cent per hour for the first 5 forwarding rules. This adds up to about 18 dollars per month, which is quite a bit more then the strictly http setup.</p>
+<h2 id="firebase-hosting">Firebase hosting</h2>
+<p>A second option is firebase hosting. According to Google firebase is their <em>&ldquo;mobile platform that helps you quickly develop high-quaility apps&rdquo;</em>. What it also lets you do is quickly, and cheaply host a static website!</p>
+<p>Setting it up is really easy, I followed the <a href="https://medium.com/@aleemuddin13/how-to-host-static-website-on-firebase-hosting-for-free-9de8917bebf2">following guide</a> which utilizes the firebase cli, but many more resources can be found.
+The firebase cli deployment is really fast. In the initialization process you setup the folder which contains your page. With the <code>firebase deploy</code> command this folder then gets uploaded to firebase. Which instantly sets your website up with an ssl certificate. It cost me arround 15 minutes to set everything up and get my website going.</p>
+<p>The usage of firebase hosting is billed by the amount of GB stored and transferred. Stored data is free up to 10GB after which it costs 2.6 cents per GB. The GB transferred include all data that is either uploaded or downloaded (so this also includes all te downloads of your users) and is free up to 360MB/day after which it costs 15 cents per GB. So for low usage website this is a very cheap way to host your website. The big plus is that with these costs an ssl certificate is included and using your own domain is easily set up.</p>
+<h2 id="cloud-runapp-engine">Cloud run/App engine</h2>
+<p>In very short cloud run and App engine are 2 sides of the same medalion. Cloud run lets you deploy a docker container in a serverless environment. With app engine you can define a .yaml file with which it builds a docker image of you app which is ten hosted.</p>
+<p>The cost of both of these options are fairly similar in that you only pay for what you use. Cloud run has a base free tier, which only incurs cost beyond the free tier. The cost of App engine is based on which instance you use. If you utilize the gcp free plan, which gives you a free f1-micro node, you don&rsquo;t pay anything for this setup as long as your usage stays below a single instance month. With seting up you app on App engine you also get a free ssl certificate.</p>
+<p>More info on hosting on google cloud run can be found <a href="https://cloud.google.com/run">here</a> and <a href="https://daniel-azuma.com/blog/2019/07/01/deploying-my-blog-to-google-cloud-run">here</a>. More on hosting on app engine can be found in <a href="https://github.com/ncruces/appengine-hosting">this</a> github repo.</p>
+<h2 id="hosting-on-compute-engine">Hosting on Compute engine</h2>
+<p>The final option is of course to set up your own webhosting on compute engine. The really cheap instances (f1-micro, e2-micro) go for around 5 to 6 USD per month. On top of that a static ip and ssl certificate would be needed, making this quite a bit to set up.Altough you can learn a lot of running your own webserver, deploying to your custom vm and making sure everything keeps running is quite a bit more work. Furthermore for just hosting a static website this setup would also be total overkill.</p>
+<p>When we look at the costs there is an option to reduce them a bit. With the free gcp plan you can get a free f1-micro node, which save some costs. To add an ssl certificate you run into the same problem as gcs in that you need to use a load balancer which come with the minimum cost of 18 dollars per month.</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>Fareout the easiest option to quickly get going with your static site on gcp is to host it on firebase. The cli that is supplied makes it easy to set up your project. For the rest it is extremely scalable and an ssl certificate is included. When a little more customization is needed app engine can be used. For app engine you do need to setup your own webserver though. If having your website just accesible over http is fine google cloud storage would also work great.</p>
+<p>The cloud environment is moving constantly in terms of pricing and new options. So I&rsquo;m sure many more options exists that can also be used for free.</p>
+
+            </div>
+        </div>
+	</div>
+    <div class="pure-u-1-24 pure-u-md-1-6"></div>
+</div>
+
+<div class="footer pure-g">
+    <div class="pure-u-1-24 pure-u-md-5-24"></div>
+    <div class="pure-u-11-12 pure-u-md-5-8">
+        <div class="footer-content">
+		  <div class="pure-menu pure-menu-horizontal">
+              <ul>
+			      
+                  <li class="pure-menu-heading" id="foot-name">Eric Leerssen:</li>
+                  
+				  
+                  
+          
+                  
+                  <li class="pure-menu-item">
+                      <a href="https://github.com/EricLeer" class="pure-menu-link">GitHub</a>
+                  </li>
+                  
+          
+                  
+                  <li class="pure-menu-item">
+                      <a href="https://www.linkedin.com/in/YOUR%20LINKEDIN%20ID" class="pure-menu-link">LinkedIn</a>
+                  </li>
+                  
+          
+                  
+          
+                  
+          
+              </ul>
+              <a href="#" class="pure-menu-heading pull-right" id="gototop-btn">↑↑</a>
+          </div>
+		  
+		</div>
+	  </div>
+      <div class="pure-u-1-24 pure-u-md-1-6"></div>
+</div>
+
+
+<script src="https://ericleer.com/js/jquery.min.js" type="text/javascript"></script>
+<script src="https://ericleer.com/js/jquery.timeago.js" type="text/javascript"></script>
+<script type="text/javascript">
+  $(function(){
+    $("time.timeago").timeago();
+  })
+  $("#toggle-btn").click(function(){
+    $("#toggle-content").toggle();
+    if($(this).html() === "☰") {
+        $(this).html("X")
+    } else {
+        $(this).html("☰")
+    }
+  });
+  $(window).resize(function(){
+    if(window.innerWidth > 768) {
+      $(".desktop").removeAttr("style");
+    }
+  });
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'YOUR Google Analytics Tracking ID', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</body>
+</html>
+

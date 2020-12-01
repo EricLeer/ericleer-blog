@@ -6,7 +6,16 @@
     <description>Recent content in Tags on EricLeer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 22 Nov 2020 22:26:06 +0100</lastBuildDate><atom:link href="https://ericleer.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Dec 2020 09:17:00 +0100</lastBuildDate><atom:link href="https://ericleer.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>gcp</title>
+      <link>https://ericleer.com/tags/gcp/</link>
+      <pubDate>Tue, 01 Dec 2020 09:17:00 +0100</pubDate>
+      
+      <guid>https://ericleer.com/tags/gcp/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>hugo</title>
       <link>https://ericleer.com/tags/hugo/</link>

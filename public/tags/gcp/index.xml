@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gcp on EricLeer</title>
+    <link>https://ericleer.com/tags/gcp/</link>
+    <description>Recent content in gcp on EricLeer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 01 Dec 2020 09:17:00 +0100</lastBuildDate><atom:link href="https://ericleer.com/tags/gcp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hosting static pages with google cloud platform on the cheap</title>
+      <link>https://ericleer.com/post/cheap_gcp_hosting/</link>
+      <pubDate>Tue, 01 Dec 2020 09:17:00 +0100</pubDate>
+      
+      <guid>https://ericleer.com/post/cheap_gcp_hosting/</guid>
+      <description>In this day and age static website are making their reentry again.</description>
+    </item>
+    
+  </channel>
+</rss>

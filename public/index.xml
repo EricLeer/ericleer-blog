@@ -6,7 +6,16 @@
     <description>Recent content in Posts Archive on EricLeer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 22 Nov 2020 22:26:06 +0100</lastBuildDate><atom:link href="https://ericleer.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Dec 2020 09:17:00 +0100</lastBuildDate><atom:link href="https://ericleer.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hosting static pages with google cloud platform on the cheap</title>
+      <link>https://ericleer.com/post/cheap_gcp_hosting/</link>
+      <pubDate>Tue, 01 Dec 2020 09:17:00 +0100</pubDate>
+      
+      <guid>https://ericleer.com/post/cheap_gcp_hosting/</guid>
+      <description>In this day and age static website are making their reentry again.</description>
+    </item>
+    
     <item>
       <title>How to Hugo</title>
       <link>https://ericleer.com/post/hugo_blog/</link>
