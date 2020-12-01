@@ -1,7 +1,7 @@
 ---
 title: "Hosting static pages with google cloud platform on the cheap"
 date: 2020-12-01T09:17:00+01:00
-draft: true
+draft: False
 tags:
   - gcp
 ---
